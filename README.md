@@ -19,3 +19,10 @@ Then, import the react components:
 ```tsx
 import { ... } from "@klashdevelopment/mc.css";
 ```
+
+## Icons
+A lot of the assets here come from CCLeaf, which Klash provides a node package for interfacing with for HD & SD minecraft icons, 3d renders of mobs/structures, icons, effects, particles, etc.
+You can find it here: [npm:@klashdevelopment/mcicons](https://www.npmjs.com/package/@klashdevelopment/mcicons)
+
+## Contributions
+Feel free to contribute! You can build the React package with `npm run build`, or the CSS in styles/index.css.
