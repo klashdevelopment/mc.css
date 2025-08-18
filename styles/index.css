@@ -204,7 +204,7 @@
 .mc-button:active {
     color: #eee;
 }
-.mc-button:disabled, .mc-button[disabled] {
+.mc-button.disabled, .mc-button[disabled] {
     --texture-left: url('./assets/button/btn_left_disabled.png');
     --texture-center: url('./assets/button/btn_center_disabled.png');
     --texture-right: url('./assets/button/btn_right_disabled.png');
@@ -343,7 +343,7 @@
     background: url('./assets/square-btn/button_highlight.png') no-repeat center center;
     background-size: cover;
 }
-.mc-button-square[disabled], .mc-button-square:disabled {
+.mc-button-square[disabled], .mc-button-square.disabled {
     background: url('./assets/square-btn/button_disabled.png') no-repeat center center;
     background-size: cover;
     color: #9f9f9f;
