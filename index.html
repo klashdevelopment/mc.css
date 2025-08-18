@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mc.css examples</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+    <main>
+        <h1>mc.css</h1>
+        <span>mc.css lets you use Minecraft's design system in pure CSS, with extra features included with React.</span>
+        <i>This demo has a lot of HD images from ccleaf (items), it is very WIP and not specifically built for mobile
+            connections.</i>
+        <h3>Install it via NPM (css & react)</h3>
+        <code>npm install @klashdevelopment/mc.css</code>
+        <h3>or use a CDN for css:</h3>
+        <code>https://unpkg.com/@klashdevelopment/mc.css/styles/index.css</code>
+        <br>
+        <h2>Reccomended icons (mcicons)</h2>
+        <code>npm install @klashdevelopment/mcicons</code>
+        <code>import MCIcons from "@klashdevelopment/mcicons";<br><br>MCIcons.interface['...'].high_url</code>
+        <br><br><br><br><br><br>
+        <h1>Containers</h1>
+        <span>Dynamically sized with 3 sizes</span>
+        <code><b>REACT: </b> &lt;Container size? className? contentClassName? ...&gt;...&lt;/Container&gt;</code>
+        <code style="white-space: preserve;"><b>HTML:</b>
+&lt;div class=&quot;mc-container sm/md/lg&quot;&gt;
+    &lt;div class=&quot;mc-header&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;mc-content&quot;&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div class=&quot;mc-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+        <div class="docs-item">
+            <div class="mc-container sm">
+                <div class="mc-header"></div>
+                <div class="mc-content mc-text-sm">
+                    Small sized container with 16px font size
+                </div>
+                <div class="mc-footer"></div>
+            </div>
+            <div class="mc-container md">
+                <div class="mc-header"></div>
+                <div class="mc-content mc-text-md">
+                    Medium sized container with <br> multiple lines of text and 20px font size
+                </div>
+                <div class="mc-footer"></div>
+            </div>
+            <div class="mc-container lg">
+                <div class="mc-header"></div>
+                <div class="mc-content mc-text-lg">
+                    Largest size of container with 24px font size
+                </div>
+                <div class="mc-footer"></div>
+            </div>
+        </div>
+        <br><br>
+        <h1>Arrow Buttons</h1>
+        <span>Arrow Buttons are directional & navigational buttons.</span>
+        <code><b>REACT:</b> &lt;ArrowButton direction? size? onClick? className? .../&gt;</code>
+        <code><b>HTML:</b> &lt;div class=&quot;mc-button-arrow&quot; data-direction=&quot;up/down/left/right&quot; data-size=&quot;sm/md/lg&quot;&gt;&lt;/div&gt;</code>
+        <div class="docs-item row">
+            <div class="mc-button-arrow" data-direction="up" data-size="lg"></div>
+            <div class="mc-button-arrow" data-direction="down" data-size="lg"></div>
+            <div class="mc-button-arrow" data-direction="left" data-size="lg"></div>
+            <div class="mc-button-arrow" data-direction="right" data-size="lg"></div>
+        </div>
+        <div class="docs-item row">
+            <div class="mc-button-arrow" data-direction="up" data-size="md"></div>
+            <div class="mc-button-arrow" data-direction="down" data-size="md"></div>
+            <div class="mc-button-arrow" data-direction="left" data-size="md"></div>
+            <div class="mc-button-arrow" data-direction="right" data-size="md"></div>
+        </div>
+        <div class="docs-item row">
+            <div class="mc-button-arrow" data-direction="up" data-size="sm"></div>
+            <div class="mc-button-arrow" data-direction="down" data-size="sm"></div>
+            <div class="mc-button-arrow" data-direction="left" data-size="sm"></div>
+            <div class="mc-button-arrow" data-direction="right" data-size="sm"></div>
+        </div>
+        <code><b>REACT:</b> Not yet implemented</code>
+        <code><b>HTML:</b> &lt;div class=&quot;mc-button-last&quot; data-size=&quot;sm/md/lg&quot;&gt;&lt;/div&gt;</code>
+        <code><b>HTML:</b> &lt;div class=&quot;mc-button-next&quot; data-size=&quot;sm/md/lg&quot;&gt;&lt;/div&gt;</code>
+        <div class="docs-item row">
+            <div class="mc-button-last" data-size="lg"></div>
+            <div class="mc-button-next" data-size="lg"></div>
+        </div>
+        <div class="docs-item row">
+            <div class="mc-button-last" data-size="md"></div>
+            <div class="mc-button-next" data-size="md"></div>
+        </div>
+        <div class="docs-item row">
+            <div class="mc-button-last" data-size="sm"></div>
+            <div class="mc-button-next" data-size="sm"></div>
+        </div>
+        <br><br>
+        <h1>Badges</h1>
+        <span>Badges let you display an icon over one of many backgrounds.</span>
+        <code><b>REACT:</b> &lt;Badge badge className? onClick? ...&gt;...&lt;/Badge&gt;</code>
+        <code><b>HTML:</b> &lt;div class=&quot;mc-badge&quot; data-badge=&quot;badge_name&quot;&gt;&lt;img src=&quot;...&quot; /&gt;&lt;/div&gt;</code>
+        <span>Click a badge to get it's badge_name. You may also set a --custom-badge-image and use badge "custom"</span>
+        <div class="docs-grid">
+            <div class="mc-badge" data-badge="crafter_slot" onclick="alert(this.dataset.badge)">
+                <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" height="16">
+            </div>
+            <div class="mc-badge" data-badge="effect_ambient" onclick="alert(this.dataset.badge)">
+                <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" height="16">
+            </div>
+            <div class="mc-badge" data-badge="effect_small" onclick="alert(this.dataset.badge)">
+                <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" height="16">
+            </div>
+            <div class="mc-badge" data-badge="effect" onclick="alert(this.dataset.badge)">
+                <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" height="16">
+            </div>
+            <div class="mc-badge" data-badge="gold_challenge" onclick="alert(this.dataset.badge)">
+                <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" height="16">
+            </div>
+            <div class="mc-badge" data-badge="gray_challenge" onclick="alert(this.dataset.badge)">
+                <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" height="16">
+            </div>
+            <div class="mc-badge" data-badge="gold_goal" onclick="alert(this.dataset.badge)">
+                <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" height="16">
+            </div>
+            <div class="mc-badge" data-badge="gray_goal" onclick="alert(this.dataset.badge)">
+                <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" height="16">
+            </div>
+            <div class="mc-badge" data-badge="inventory_slot" onclick="alert(this.dataset.badge)">
+                <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" height="16">
+            </div>
+            <div class="mc-badge" data-badge="item_slot" onclick="alert(this.dataset.badge)">
+                <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" height="16">
+            </div>
+            <div class="mc-badge" data-badge="recipe_slot" onclick="alert(this.dataset.badge)">
+                <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" height="16">
+            </div>
+            <div class="mc-badge" data-badge="slot_shadow" onclick="alert(this.dataset.badge)">
+                <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" height="16">
+            </div>
+            <div class="mc-badge" data-badge="slot" onclick="alert(this.dataset.badge)">
+                <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" height="16">
+            </div>
+        </div>
+        <br><br>
+        <h1>Tabbed Windows</h1>
+        <span>These are used to show a window with tabs, like the recipe book or Creative inventory.</span>
+        <b>Tab functionality must be manually added with click events on tabs.</b>
+        <i>The interactivity in this demo simply switches the 'active' class.</i>
+        <span>The mc-tw-left/right/etc items can have flex properties like justify-content and align-items.</span>
+        <code><b>REACT:</b> &lt;TabbedWindow tabsLeft? tabsRight? tabsTop? tabsBottom? className? ...&gt; (Any div, Window, or Container) &lt;/TabbedWindow&gt;</code>
+        <code><b>REACT TIPS:</b> className={tabbedWindow,tabsLeft,tabsRight,tabsTop,tabsBottom,content}|string</code>
+        <code><b>REACT TABS:</b> &lt;Tab className? active? onClick? ...&gt;...&lt;/Tab&gt;</code>
+        <code style="white-space: preserve;"><b>HTML:</b> &lt;div class=&quot;mc-tabbed-window&quot;&gt;
+    &lt;div class=&quot;mc-tw-left&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;mc-tw-center&quot;&gt;
+        &lt;div class=&quot;mc-tw-top&quot;&gt;...&lt;/div&gt;
+        ...(window, container, or div)...
+        &lt;div class=&quot;mc-tw-bottom&quot;&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;mc-tw-right&quot;&gt;...&lt;/div&gt;
+&lt;/div&gt;</code>
+        <code><b>HTML TABS:</b> &lt;div class=&quot;mc-tw-tab&quot;&gt;...&lt;/div&gt;</code>
+
+        <div class="docs-item">
+            <div class="mc-tabbed-window">
+                <div class="mc-tw-left">
+                    <div class="mc-tw-tab" onclick="this.classList.toggle('active')">
+                        <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" />
+                    </div>
+                    <div class="mc-tw-tab active" onclick="this.classList.toggle('active')">
+                        <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" />
+                    </div>
+                </div>
+                <div class="mc-tw-center">
+                    <div class="mc-tw-top">
+                        <div class="mc-tw-tab" onclick="this.classList.toggle('active')">
+                            <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" />
+                        </div>
+                        <div class="mc-tw-tab active" onclick="this.classList.toggle('active')">
+                            <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" />
+                        </div>
+                    </div>
+                    <div class="mc-window">
+                        <div class="mc-window-title">Optional Title</div>
+                        <div class="mc-window-content">These inner windows literally are just the scrollable windows
+                            from below. They can theoretically be containers <b>if you want</b>, but the container needs
+                            to be large enough to fit all tabs. <br><br>To add functionality, you can dynamically change
+                            the window's content when you click the tabs. Tabs can have an 'active' class to indicate if
+                            they are dark or light gray.</div>
+                    </div>
+                    <div class="mc-tw-bottom">
+                        <div class="mc-tw-tab" onclick="this.classList.toggle('active')">
+                            <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" />
+                        </div>
+                        <div class="mc-tw-tab active" onclick="this.classList.toggle('active')">
+                            <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" />
+                        </div>
+                    </div>
+                </div>
+                <div class="mc-tw-right">
+                    <div class="mc-tw-tab" onclick="this.classList.toggle('active')">
+                        <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" />
+                    </div>
+                    <div class="mc-tw-tab active" onclick="this.classList.toggle('active')">
+                        <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <h1>Tooltip windows</h1>
+        <span>These are used to show an object looking like item tooltips.</span>
+        <b>They are not functional element tooltips unless you're using the React component, which has seperate
+            documentation.</b>
+        <span>If you are moving it, <i><b>wrap it inside an absolute div</b></i> and move the outer div</span>
+        <code><b>REACT:</b> &lt;Tooltip className? contentClassName? ...&gt;...&lt;/Tooltip&gt;</code>
+        <code style="white-space: preserve;"><b>HTML:</b> &lt;div class=&quot;mc-tooltip&quot;&gt;
+    &lt;div class=&quot;mc-tooltip-header&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;mc-tooltip-content&quot;&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div class=&quot;mc-tooltip-footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+        <div class="docs-item">
+            <div class="mc-tooltip">
+                <div class="mc-tooltip-header"></div>
+                <div class="mc-tooltip-content mc-text-shadow">
+                    Mace
+                    <br><br>
+                    <span style="color:#AAAAAA;">When in Main Hand:</span>
+                    <br>
+                    <span style="color:#00AA00;margin-left:8px;">7 Attack Damage</span>
+                    <br>
+                    <span style="color:#00AA00;margin-left:8px;">1.6 Attack Speed</span>
+                    <br>
+                    <span>Durability: 249/250</span>
+                </div>
+                <div class="mc-tooltip-footer"></div>
+            </div>
+        </div>
+        <br><br>
+        <h1>Scrollable windows</h1>
+        <span>Stuck to one size as of right now (not mobile-friendly), dynamic windows coming soon.</span>
+        <span>If you need to use dynamic sizes use a Container with a custom scrollable div.</span>
+        <span>Optional window titles can contain one or multiple items.</span>
+        <code><b>REACT:</b> &lt;Window className? contentClassName? title? ...&gt;...&lt;/Window&gt;</code>
+        <code style="white-space: preserve;"><b>HTML:</b> &lt;div class=&quot;mc-window&quot;&gt;
+    &lt;!-- optional --&gt; &lt;div class=&quot;mc-window-title&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;mc-window-content&quot;&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;</code> 
+        <div class="docs-item">
+            <div class="mc-window">
+                <div class="mc-window-title">
+                    <span>Diamond Sword</span>
+                    <div>
+                        <div class="mc-button-square" data-size="sm"><img
+                                src="https://mcicons.ccleaf.com/assets/60.%20Interface/5.%20UI/Cancel.png"
+                                style="--image-size:18px;" /></div>
+                    </div>
+                </div>
+                <div class="mc-window-content">
+                    A <img src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png"
+                        height="16" /> <b>diamond sword</b> is a variant of sword that is crafted from <img
+                        src="https://mcicons.ccleaf.com/assets/10.%20Items/11.%20Materials/Diamond.png" height="16" />
+                    diamonds. It is the second-highest
+                    tier of sword, dealing more damage than an <img
+                        src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Iron_Sword.png" height="16" />
+                    iron sword and having higher durability. It can be
+                    upgraded into a <img
+                        src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Netherite_Sword.png"
+                        height="16" /> netherite sword using a <img
+                        src="https://mcicons.ccleaf.com/assets/20.%20Blocks/33.%20Workplaces/Smithing_Table.png"
+                        height="16" /> smithing table.
+                    <br>
+                    <br>
+                    A sword can also be used to destroy certain blocks <i>50% quicker</i>, sometimes much quicker than
+                    with fists. Using a sword to destroy any block that doesn't break instantly by hand decreases its
+                    durability by 2; this includes <img
+                        src="https://mcicons.ccleaf.com/assets/10.%20Items/13.%20Farmables/Bamboo.png" height="16" />
+                    bamboo, despite that the sword is the fastest tool for breaking it.
+                    <br>
+                    <br>
+                    In Creative mode, swords are unable to break blocks. However, they can still break placed entities
+                    such as <img src="https://mcicons.ccleaf.com/assets/10.%20Items/26.%20Redstone/Minecart.png"
+                        height="16" /> minecarts, <img
+                        src="https://mcicons.ccleaf.com/assets/10.%20Items/21.%20Decoration/Painting.png" height="16" />
+                    paintings, <img src="https://mcicons.ccleaf.com/assets/10.%20Items/21.%20Decoration/Item_Frame.png"
+                        height="16" /> item frames, and <img
+                        src="https://mcicons.ccleaf.com/assets/10.%20Items/36.%20Other/Armor_Stand.png" height="16" />
+                    armor stands.
+                    <br>
+                    <br>
+                    A diamond sword can be repaired in an anvil by adding <img
+                        src="https://mcicons.ccleaf.com/assets/10.%20Items/11.%20Materials/Diamond.png" height="16" />
+                    diamonds, with each repair diamond restoring
+                    25% the sword's maximum durability, rounded down. Two diamond swords can also be combined in an
+                    <img src="https://mcicons.ccleaf.com/assets/20.%20Blocks/33.%20Workplaces/Anvil.png" height="16" />
+                    anvil. Both methods preserve the diamond sword's <img
+                        src="https://mcicons.ccleaf.com/assets/10.%20Items/36.%20Other/Enchanted_Book.png"
+                        height="16" /> enchantments.
+                </div>
+            </div>
+            <div class="mc-window">
+                <div class="mc-window-content">
+                    This window contains no title, meaning it is slightly wider and shorter than the one with a title.
+                    This is due to the fact that it uses the advancement window pane instead of the blank GUI window
+                    pane.
+                    <br>
+                    <br>
+                    Again, these containers are not dynamic and are fixed to one size at the current moment. Eventually,
+                    this will be changed to allow dynamic sizes.
+                    <br>
+                    <br>
+                    The window remains scrollable and has the same content. Both of these windows can be size changed by
+                    changing the CSS properties <code>width</code> and <code>height</code> to a 160:83 number ratio.
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <h1>Buttons</h1>
+        <span>Size is dynamic, one to two lines only</span>
+        <code><b>REACT:</b> &lt;Button className? onClick? disabled? ...&gt;...&lt;/Button&gt;</code>
+        <code><b>HTML:</b> &lt;div class=&quot;mc-button&quot; disabled?&gt;...&lt;/div&gt;</code>
+        <div class="docs-item">
+            <div class="mc-button">A regular button</div>
+            <div class="mc-button" disabled>A disabled button</div>
+            <div class="mc-button"><img
+                    src="https://mcicons.ccleaf.com/assets/60.%20Interface/30.%20Icons/Icon_Mouse.png"
+                    height="24">Button with an icon</div>
+        </div>
+        <span>Square buttons for icons can also be made:</span>
+        <code><b>REACT:</b> &lt;SquareButton className? onClick? disabled? size? ...&gt;...&lt;/SquareButton&gt;</code>
+        <code><b>HTML:</b> &lt;div class=&quot;mc-button-square&quot; data-size=&quot;sm/md/lg&quot;disabled?&gt;...&lt;/div&gt;</code>
+        <div class="docs-item row end">
+            <div class="mc-button-square" data-size="sm"><img
+                    src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Netherite_Sword.png"></div>
+            <div class="mc-button-square" data-size="md"><img
+                    src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Netherite_Sword.png"></div>
+            <div class="mc-button-square" data-size="lg"><img
+                    src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Netherite_Sword.png"></div>
+        </div>
+        <div class="docs-item row">
+            <div class="mc-button-square" data-size="sm" disabled><img
+                    src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png"></div>
+            <div class="mc-button-square" data-size="md" disabled><img
+                    src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png"></div>
+            <div class="mc-button-square" data-size="lg" disabled><img
+                    src="https://mcicons.ccleaf.com/assets/10.%20Items/1.%20Swords/Diamond_Sword.png"></div>
+        </div>
+        <br><br>
+        <h1>Text Inputs</h1>
+        <span>Size can be changed with CSS</span>
+        <code><b>REACT:</b> &lt;Input className? value? onChange? type? placeholder? ... /&gt;</code>
+        <code style="white-space: preserve;"><b>HTML:</b> &lt;div class=&quot;mc-input&quot;&gt;
+    &lt;div class=&quot;mc-input-inner&quot;&gt;
+        &lt;input ...&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+        <div class="docs-item">
+            <div class="mc-input">
+                <div class="mc-input-inner">
+                    <input type="text" placeholder="Input with placeholder">
+                </div>
+            </div>
+            <div class="mc-input">
+                <div class="mc-input-inner">
+                    <input type="text" value="Input with default">
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <h1>Text Formatting</h1>
+        <span>These classes provide proper letter spacing, font size, and fonts.</span>
+        <code><b>REACT:</b> &lt;Typography className? size? shadow? ...&gt;...&lt;/Typography&gt;</code>
+        <code><b>HTML:</b> &lt;span class=&quot;mc-text-sm/md/lg&quot;&gt;...&lt;/span&gt;</code>
+        <span>Text shadows can be added with the <code>mc-text-shadow</code> class.</span>
+        <div class="docs-item">
+            <span class="mc-text-sm">A text object (small).</span>
+            <span class="mc-text-md">A text object (medium).</span>
+            <span class="mc-text-lg">A text object (large).</span>
+            <span class="mc-text-lg mc-text-shadow">With a shadow (large).</span>
+        </div>
+    </main>
+</body>
+
+</html>

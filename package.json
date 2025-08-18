@@ -1,0 +1,44 @@
+{
+  "name": "@klashdevelopment/mc.css",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "style": "styles/index.css",
+  "files": [
+    "styles",
+    "dist"
+  ],
+  "keywords": [
+    "minecraft",
+    "css",
+    "styles"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GavinGoGaming",
+  "type": "module",
+  "license": "GPL-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "mc.css lets you use Minecraft's design system in pure CSS, with extra features included with React.",
+  "dependencies": {
+    "@klashdevelopment/mcicons": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.10",
+    "typescript": "^5.9.2"
+  },
+  "peerDependencies": {
+    "react": "^19.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/klashdevelopment/mc.css.git"
+  },
+  "bugs": {
+    "url": "https://github.com/klashdevelopment/mc.css/issues"
+  },
+  "homepage": "https://github.com/klashdevelopment/mc.css#readme"
+}

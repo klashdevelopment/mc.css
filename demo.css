@@ -1,0 +1,53 @@
+html, body {
+    background: #ccc;
+    color: black;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: 'Minecraft', sans-serif;
+    letter-spacing: -0.5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 5px 0;
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mc-container, .mc-button, .mc-input, .mc-tooltip {
+    width: fit-content;
+}
+.mc-window-content {
+    padding: 10px;
+}
+.mc-window-content img {
+    scale: 1.25;
+}
+.docs-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.docs-item.row {
+    flex-direction: row;
+}
+.docs-item.row.end {
+    align-items: end;
+}
+
+.docs-grid { /* grid for 64x64 items with 8px gap */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+    gap: 8px;
+}

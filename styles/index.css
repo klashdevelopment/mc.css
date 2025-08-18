@@ -1,0 +1,718 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url("./fonts/Minecraft.otf") format('opentype');
+}
+@font-face {
+    font-family: 'Miracode';
+    src: url('./fonts/Miracode.ttf') format('truetype');
+}
+
+.mc-container {
+    --tile-size: 22px;
+    --tile-size-horizontal: 33px;
+    min-width: calc(--tile-size * 2);
+    min-width: calc(--tile-size * 2);
+    padding: 0 var(--tile-size);
+    display: inline-flex;
+    flex-direction: column;
+    color: black;
+    letter-spacing: -0.5px;
+    font-family: 'Minecraft', sans-serif;
+}
+
+.mc-container.lg { --tile-size: 44px; --tile-size-horizontal: 33px; }
+.mc-container.md { --tile-size: 22px; --tile-size-horizontal: 16px; }
+.mc-container.sm { --tile-size: 11px; --tile-size-horizontal: 8px; }
+
+.mc-header {
+    height: var(--tile-size);
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background: url('./assets/container/line_top.png') repeat-x;
+    background-size: var(--tile-size) 100%;
+    image-rendering: pixelated;
+}
+.mc-header::before,
+.mc-header::after {
+    position: absolute;
+    top: 0;
+    content: '';
+    width: var(--tile-size);
+    height: var(--tile-size);
+    background-size: contain;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+.mc-header::before {
+    left: calc(var(--tile-size) * -1);
+    background: url('./assets/container/corner_tl.png') no-repeat top left / contain;
+}
+.mc-header::after {
+    right: calc(var(--tile-size) * -1);
+    background: url('./assets/container/corner_tr.png') no-repeat top right / contain;
+}
+
+.mc-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #c6c6c6;
+}
+.mc-content::before,
+.mc-content::after {
+    position: absolute;
+    top: 0;
+    content: '';
+    width: var(--tile-size);
+    height: 100%;
+    background-color: #c6c6c6;
+    background-repeat: repeat-y;
+    background-size: var(--tile-size-horizontal) 100%;
+    image-rendering: pixelated;
+}
+.mc-content::before {
+    left: calc(var(--tile-size) * -1);
+    background-image: url('./assets/container/line_left.png');
+    background-position: left top;
+}
+.mc-content::after {
+    right: calc(var(--tile-size) * -1);
+    background-image: url('./assets/container/line_right.png');
+    background-position: right top;
+}
+
+.mc-footer {
+    height: var(--tile-size);
+    width: 100%;
+    position: relative;
+    background: url('./assets/container/line_bottom.png') repeat-x;
+    background-size: var(--tile-size) 100%;
+    image-rendering: pixelated;
+}
+.mc-footer::before,
+.mc-footer::after {
+    position: absolute;
+    bottom: 0;
+    content: '';
+    width: var(--tile-size);
+    height: var(--tile-size);
+    background-size: contain;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+.mc-footer::before {
+    left: calc(var(--tile-size) * -1);
+    background: url('./assets/container/corner_bl.png') no-repeat bottom left / contain;
+}
+.mc-footer::after {
+    right: calc(var(--tile-size) * -1);
+    background: url('./assets/container/corner_br.png') no-repeat bottom right / contain;
+}
+
+
+
+.mc-window {
+    position: relative;
+}
+
+.mc-window:has(.mc-window-title) {
+    width: 630px;
+    height: 350px;
+    --window-texture: url('./assets/window/window.png');
+    --window-content-top: 45px;
+    --window-content-height: 68px;
+}
+.mc-window:not(:has(.mc-window-title)) {
+    width: 640px;
+    height: 332px;
+    --window-texture: url('./assets/window/window_no_title.png');
+    --window-content-top: 25px;
+    --window-content-height: 48px;
+}
+
+.mc-window::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--window-texture) no-repeat center center;
+    background-size: cover;
+    pointer-events: none;
+    image-rendering: pixelated;
+}
+.mc-window-title {
+    position: absolute;
+    top: 9px;
+    left: 23px;
+    z-index: 1;
+    color: #3f3f3f;
+    letter-spacing: -1px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 32px;
+    width: calc(100% - 46px);
+}
+.mc-window-content {
+    position: absolute;
+    background: #fff;
+    color: black;
+    top: var(--window-content-top);
+    left: 23px;
+    width: calc(100% - 46px);
+    height: calc(100% - var(--window-content-height));
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.mc-text-sm {
+    font-family: 'Minecraft', sans-serif;
+    letter-spacing: -0.5px;
+    font-size: 16px;
+}
+.mc-text-md {
+    font-family: 'Minecraft', sans-serif;
+    letter-spacing: -1px;
+    font-size: 20px;
+}
+.mc-text-lg {
+    font-family: 'Minecraft', sans-serif;
+    letter-spacing: -2px;
+    font-size: 24px;
+}
+.mc-text-shadow {
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+}
+
+.mc-button {
+    --texture-left: url('./assets/button/btn_left.png');
+    --texture-center: url('./assets/button/btn_center.png');
+    --texture-right: url('./assets/button/btn_right.png');
+}
+.mc-button:hover {
+    --texture-left: url('./assets/button/btn_left_highlight.png');
+    --texture-center: url('./assets/button/btn_center_highlight.png');
+    --texture-right: url('./assets/button/btn_right_highlight.png');
+}
+.mc-button:active {
+    color: #eee;
+}
+.mc-button:disabled, .mc-button[disabled] {
+    --texture-left: url('./assets/button/btn_left_disabled.png');
+    --texture-center: url('./assets/button/btn_center_disabled.png');
+    --texture-right: url('./assets/button/btn_right_disabled.png');
+    color: #9f9f9f;
+}
+
+.mc-button {
+    display: inline-block;
+    font-family: 'Minecraft', sans-serif;
+    letter-spacing: -0.5px;
+    font-size: 16px;
+    text-align: center;
+    height: 40px;
+    background: var(--texture-center) repeat-x center center;
+    background-size: contain;
+    padding: 0px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+    gap: 5px;
+    position: relative;
+    user-select: none;
+}
+.mc-button::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--texture-left) no-repeat center center;
+    background-size: contain;
+    image-rendering: pixelated;
+}
+.mc-button::after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--texture-right) no-repeat center center;
+    background-size: contain;
+    image-rendering: pixelated;
+}
+.mc-button img {
+    filter: drop-shadow(1px 1px 0px rgba(0,0,0,0.5));
+}
+
+.mc-input {
+    display: inline-flex;
+    align-items: center;
+    background: url('./assets/input/input_bg.png') no-repeat center center;
+    background-size: cover;
+    height: 40px;
+    background: #8b8b8b;
+    position: relative;
+}
+.mc-input::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: #00000073;
+}
+.mc-input::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: #ffffff;
+}
+.mc-input input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    color: white;
+    font-family: 'Minecraft', sans-serif;
+    letter-spacing: -0.5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.mc-input input::placeholder {
+    color: #ddd;
+    opacity: 1;
+}
+.mc-input input:focus {
+    outline: none;
+}
+.mc-input-inner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 10px;
+}
+.mc-input-inner::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 0;
+    width: calc(100% - 2px);
+    height: 2px;
+    background: #00000073;
+}
+.mc-input-inner::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+}
+
+.mc-button-square {
+    width: 64px;
+    height: 64px;
+    background: url('./assets/square-btn/button.png') no-repeat center center;
+    background-size: cover;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.mc-button-square:hover {
+    background: url('./assets/square-btn/button_highlight.png') no-repeat center center;
+    background-size: cover;
+}
+.mc-button-square[disabled], .mc-button-square:disabled {
+    background: url('./assets/square-btn/button_disabled.png') no-repeat center center;
+    background-size: cover;
+    color: #9f9f9f;
+}
+
+.mc-button-square[data-size="lg"] {
+    width: 64px;
+    height: 64px;
+    --image-size: 40px;
+}
+.mc-button-square[data-size="md"] {
+    width: 48px;
+    height: 48px;
+    --image-size: 32px;
+}
+.mc-button-square[data-size="sm"] {
+    width: 32px;
+    height: 32px;
+    --image-size: 24px;
+}
+.mc-button-square img {
+    width: var(--image-size);
+    height: var(--image-size);
+    filter: drop-shadow(1px 1px 0px rgba(0,0,0,0.5));
+}
+
+.mc-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background-image: url('./assets/badges/effect.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    position: relative;
+}
+.mc-badge[data-badge="effect"] {
+    background-image: url('./assets/badges/effect.png');
+}
+.mc-badge[data-badge="effect_ambient"] {
+    background-image: url('./assets/badges/effect_ambient.png');
+}
+.mc-badge[data-badge="effect_small"] {
+    background-image: url('./assets/badges/effect_small.png');
+}
+.mc-badge[data-badge="gold_challenge"] {
+    background-image: url('./assets/badges/gold_challenge.png');
+}
+.mc-badge[data-badge="gold_goal"] {
+    background-image: url('./assets/badges/gold_goal.png');
+}
+.mc-badge[data-badge="gray_challenge"] {
+    background-image: url('./assets/badges/gray_challenge.png');
+}
+.mc-badge[data-badge="gray_goal"] {
+    background-image: url('./assets/badges/gray_goal.png');
+}
+.mc-badge[data-badge="inventory_slot"] {
+    background-image: url('./assets/badges/inventory_slot.png');
+}
+.mc-badge[data-badge="item_slot"] {
+    background-image: url('./assets/badges/item_slot.png');
+}
+.mc-badge[data-badge="recipe_slot"] {
+    background-image: url('./assets/badges/recipe_slot.png');
+}
+.mc-badge[data-badge="slot"] {
+    background-image: url('./assets/badges/slot.png');
+}
+.mc-badge[data-badge="slot_shadow"] {
+    background-image: url('./assets/badges/slot_shadow.png');
+}
+.mc-badge[data-badge="custom"] {
+    background-image: var(--custom-badge-image);
+}
+.mc-badge img {
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(1px 1px 0px rgba(0,0,0,0.5));
+}
+
+.mc-tooltip {
+    position: relative;
+    min-width: 22px;
+    min-height: 22px;
+    padding: 0px 11px;
+    background: #120211;
+}
+.mc-tooltip::before {
+    content: '';
+    position: absolute;
+    top: 11px;
+    left: 0px;
+    height: calc(100% - 22px);
+    width: 11px;
+    background: url('./assets/tooltip/line_left.png') repeat-y;
+    background-size: 100% 100%;
+}
+.mc-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 11px;
+    right: 0px;
+    height: calc(100% - 22px);
+    width: 11px;
+    background: url('./assets/tooltip/line_right.png') repeat-y;
+    background-size: 100% 100%;
+}
+.mc-tooltip-header {
+    background: url('./assets/tooltip/line_top.png') no-repeat;
+    background-size: 100% 100%;
+    height: 11px;
+    width: 100%;
+}
+.mc-tooltip-header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 11px;
+    height: 11px;
+    background: url('./assets/tooltip/corner_tl.png') no-repeat;
+    background-size: contain;
+}
+.mc-tooltip-header::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 11px;
+    height: 11px;
+    background: url('./assets/tooltip/corner_tr.png') no-repeat;
+    background-size: contain;
+}
+.mc-tooltip-footer {
+    background: url('./assets/tooltip/line_bottom.png') no-repeat;
+    background-size: 100% 100%;
+    height: 11px;
+    width: 100%;
+}
+.mc-tooltip-footer::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 11px;
+    height: 11px;
+    background: url('./assets/tooltip/corner_bl.png') no-repeat;
+    background-size: contain;
+}
+.mc-tooltip-footer::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 11px;
+    height: 11px;
+    background: url('./assets/tooltip/corner_br.png') no-repeat;
+    background-size: contain;
+}
+.mc-tooltip-content {
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    color: white;
+}
+
+.mc-tabbed-window {
+    display: flex;
+    flex-direction: row;
+}
+.mc-tw-tab {
+    width: 70px;
+    height: 50px;
+    position: relative;
+    --background: url('./assets/tabs/tab.png');
+    --offset: -4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mc-tw-tab.active {
+    --background: url('./assets/tabs/tab_selected.png');
+    --offset: 0px;
+}
+.mc-tw-tab::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: var(--offset);
+    width: 100%;
+    height: 100%;
+    background: var(--background) no-repeat right center;
+    background-size: contain;
+}
+.mc-tw-left, .mc-tw-right {
+    margin-top: 75px;
+    width: 70px;
+    height: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.mc-tw-right .mc-tw-tab::after {
+    transform: scaleX(-1);
+    left: var(--offset);
+    top: 0;
+}
+.mc-tw-center {
+    z-index: 1;
+}
+.mc-tw-top, .mc-tw-bottom {
+    width: 100%;
+    height: 70px;
+    position: relative;
+    display: flex;
+    gap: 2px;
+}
+
+.mc-tw-top .mc-tw-tab, .mc-tw-bottom .mc-tw-tab {
+    height: 70px;
+    width: 50px;
+    left: 5px;
+}
+
+.mc-tw-top .mc-tw-tab {
+    --background: url('./assets/tabs/vertical_tab.png');
+    --offset: -4px;
+}
+.mc-tw-bottom .mc-tw-tab {
+    --background: url('./assets/tabs/vertical_tab.png');
+    --offset: 0px;
+}
+.mc-tw-top .mc-tw-tab.active {
+    --background: url('./assets/tabs/vertical_tab_selected.png');
+    --offset: 0px;
+}
+.mc-tw-bottom .mc-tw-tab.active {
+    --background: url('./assets/tabs/vertical_tab_selected.png');
+    --offset: 0px;
+}
+
+.mc-tw-bottom .mc-tw-tab::after {
+    right: 0px;
+    bottom: calc(var(--offset) + 4px);
+}
+.mc-tw-top .mc-tw-tab::after {
+    transform: scaleY(-1);
+    right: 0px;
+    bottom: calc(var(--offset) + -4px);
+}
+.mc-tw-center .mc-window {
+    z-index: 1;
+}
+
+.mc-tw-tab img {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    z-index: 1;
+}
+.mc-tw-left .mc-tw-tab img {
+    right: 6px;
+}
+.mc-tw-left .mc-tw-tab.active img {
+    right: 8px;
+}
+.mc-tw-right .mc-tw-tab img {
+    left: 6px;
+}
+.mc-tw-right .mc-tw-tab.active img {
+    left: 8px;
+}
+.mc-tw-top .mc-tw-tab img {
+    bottom: 6px;
+}
+.mc-tw-top .mc-tw-tab.active img {
+    bottom: 8px;
+}
+.mc-tw-bottom .mc-tw-tab img {
+    top: 6px;
+}
+.mc-tw-bottom .mc-tw-tab.active img {
+    top: 8px;
+}
+
+
+.mc-button-arrow {
+    height: 64px;
+    width: 64px;
+}
+.mc-button-arrow[data-size="lg"] {
+    width: 64px;
+    height: 64px;
+}
+.mc-button-arrow[data-size="md"] {
+    width: 48px;
+    height: 48px;
+}
+.mc-button-arrow[data-size="sm"] {
+    width: 32px;
+    height: 32px;
+}
+.mc-button-arrow[data-direction="up"] {
+    background: url('./assets/arrows/up/up.png') no-repeat center center;
+    background-size: contain;
+}
+.mc-button-arrow[data-direction="up"]:hover {
+    background: url('./assets/arrows/up/up_highlight.png') no-repeat center center;
+    background-size: contain;
+}
+.mc-button-arrow[data-direction="down"] {
+    background: url('./assets/arrows/down/down.png') no-repeat center center;
+    background-size: contain;
+}
+.mc-button-arrow[data-direction="down"]:hover {
+    background: url('./assets/arrows/down/down_highlight.png') no-repeat center center;
+    background-size: contain;
+}
+.mc-button-arrow[data-direction="left"] {
+    background: url('./assets/arrows/left/left.png') no-repeat center center;
+    background-size: contain;
+}
+.mc-button-arrow[data-direction="left"]:hover {
+    background: url('./assets/arrows/left/left_highlight.png') no-repeat center center;
+    background-size: contain;
+}
+.mc-button-arrow[data-direction="right"] {
+    background: url('./assets/arrows/right/right.png') no-repeat center center;
+    background-size: contain;
+}
+.mc-button-arrow[data-direction="right"]:hover {
+    background: url('./assets/arrows/right/right_highlight.png') no-repeat center center;
+    background-size: contain;
+}
+
+.mc-button-last {
+    height: 40px;
+    width: 80px;
+    background: url('./assets/arrows/buttons/last.png') no-repeat center center;
+    background-size: contain;
+    box-sizing: border-box;
+}
+.mc-button-next {
+    height: 40px;
+    width: 80px;
+    background: url('./assets/arrows/buttons/next.png') no-repeat center center;
+    background-size: contain;
+}
+.mc-button-last[data-size="lg"], .mc-button-next[data-size="lg"] {
+    height: 40px;
+    width: 80px;
+}
+.mc-button-last[data-size="md"], .mc-button-next[data-size="md"] {
+    height: 32px;
+    width: 64px;
+}
+.mc-button-last[data-size="sm"], .mc-button-next[data-size="sm"] {
+    height: 24px;
+    width: 48px;
+}
+
+code {
+    font-family: 'Miracode', 'Minecraft', monospace;
+    font-weight: 400;
+    background: #e9e9e9;
+    padding: 3px 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
