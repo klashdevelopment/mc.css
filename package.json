@@ -1,6 +1,6 @@
 {
   "name": "@klashdevelopment/mc.css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "style": "styles/index.css",
   "files": [
@@ -23,15 +23,12 @@
     "access": "public"
   },
   "description": "mc.css lets you use Minecraft's design system in pure CSS, with extra features included with React.",
-  "dependencies": {
-    "@klashdevelopment/mcicons": "^1.0.0"
-  },
   "devDependencies": {
     "@types/react": "^19.1.10",
     "typescript": "^5.9.2"
   },
   "peerDependencies": {
-    "react": "^19.1.1"
+    "react": "^19.0.0"
   },
   "repository": {
     "type": "git",
