@@ -104,7 +104,7 @@ export function Tab({
     onClick?: () => void;
 }) {
     return (
-        <div className={`mc-tab ${active ? 'active' : ''} ${className}`} onClick={onClick} {...gleep}>
+        <div className={`mc-tw-tab ${active ? 'active' : ''} ${className}`} onClick={onClick} {...gleep}>
             {children}
         </div>
     );
