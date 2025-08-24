@@ -1,5 +1,6 @@
 # mc.css
 mc.css lets you use Minecraft's design system in pure CSS, with extra features included with React.
+![mc.css](https://socialify.git.ci/klashdevelopment/mc.css/image?custom_description=Minecraft%27s+design+system+in+pure+CSS+%26+optional+React&custom_language=CSS&description=1&font=JetBrains+Mono&language=1&name=1&owner=1&pattern=Solid&theme=Dark)
 
 ## Installation
 For just CSS, you can use a CDN:
